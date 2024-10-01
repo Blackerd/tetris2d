@@ -1,0 +1,360 @@
+$colorRed : red;
+$colorRedLight : #A0153E;
+$colorRedLevel1:#FF204E;
+$secondaryColor : blue;
+$colorBlack : black;
+$colorWhite : white;
+$colorGreen : #114232;
+$colorPinkLight: #FA7070;
+$colorBlue: #070F2B;
+$colorBlueLight: #3C5B6F;
+$colorBrown: #481E14;
+$colorBlueLightLevel1: #481E14;
+
+
+
+$background: url('./img/background.jpg');
+
+$boxShadow: 0 0 5px 5px rgb(119, 142, 219);
+$boxShadow1: 0 0 10px 5px rgb(172, 68, 68);
+
+body{
+    background: $background;
+    height: 100vh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            padding: 100px;
+
+            .level {
+                border-radius: 5px;
+                background: $colorWhite;
+                color: $colorBlue;
+                border: none;
+            
+                &:hover,
+                &.active {
+                    background: $colorRedLight;
+                    color: $colorWhite;
+                }
+            
+                &:active {
+                    background: $colorRedLight;
+                    color: $colorWhite;
+                }
+
+            }
+            button{
+                padding: 10px;
+                margin: 15px;
+            }
+            
+          
+            
+        }
+        .center{
+            position: relative;
+            h1{
+                color: $colorWhite;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .board {
+                background: $colorRedLevel1;
+                #gameCanvas{
+                    width: 240px;
+                    height: 480px;
+                    border: 5px solid $colorRedLevel1;
+                    margin: 0 auto;
+                    position: relative;
+                    background: $colorRedLevel1;
+                    box-shadow: $boxShadow;
+                
+                }
+            }
+
+            .gameOver{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: $colorBlueLight;
+                padding: 10px;
+                border-radius: 10px;
+                z-index: 100;
+                transform: translate(-50%, -50%);
+                display: none; 
+                top : 50%;
+                left: 50%;
+
+                .textOver{
+                    display: flex;
+                    padding: 10px 5px 5px 5px;
+                    color: $colorWhite;
+                }
+                .score{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5px 0 5px 0;
+                    padding: 10px 5px 5px 5px;
+                    color: $colorWhite;
+                }
+
+                #restartButton{
+                    border-radius: 5px;
+                    background: $colorBrown;
+                    color: $colorWhite;
+                    border: none;
+                    cursor: pointer;
+                    margin-left: 8px;
+                    display: flex;
+                    justify-content: center;
+                    padding: 5px;
+                    margin: 5px;
+                
+                }
+            }
+            .gameWin{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: $colorBlueLightLevel1;
+                padding: 10px;
+                border-radius: 10px;
+                z-index: 100;
+                transform: translate(-50%, -50%);
+                display: none; 
+                top : 50%;
+                left: 50%;
+
+                .textWin{
+                    display: flex;
+                    padding: 10px 5px 5px 5px;
+                    color: $colorWhite;
+                }
+
+                #restartButton{
+                    border-radius: 5px;
+                    background: $colorBrown;
+                    color: $colorWhite;
+                    border: none;
+                    cursor: pointer;
+                    margin-left: 8px;
+                    display: flex;
+                    justify-content: center;
+                    padding: 5px;
+                    margin: 5px;
+                
+                }
+            }
+        }
+
+        .right{
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            margin-top: 200px;
+
+            .score{
+                background: $colorWhite;
+                padding: 5px;  
+                border-radius: 3px;
+                text-align: center;
+            }
+
+            .play{
+                padding: 5px;  
+                margin-bottom: 50px;
+                border-radius: 4px;
+            }
+            .pause{
+                padding: 5px;
+                margin-bottom: 50px;
+                border-radius: 4px;
+            }
+            #muteSound{
+                padding: 5px;
+                margin-bottom: 50px;
+                border-radius: 4px;
+            }
+            #infoButton {
+                position: fixed;
+                top: 140px;
+                right: 320px;
+                padding: 5px 30px 5px 30px;
+                border-radius: 4px;
+            }
+            
+        }
+        .info {
+            display: none;
+            position: fixed;
+            right: 30px;
+            width: 200px;
+            top: 200px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+            }
+        }
+        .infoLevel1{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 300px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+        .infoLevel2{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 300px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+        .infoLevel3{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 320px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+        .infoLevel4{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 360px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+        .infoLevel5{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 320px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+        .infoLevel6{
+            display: none;
+            position: fixed;
+            left: 50px;
+            width: 300px;
+            height: 400px;
+            top: 140px;
+            background-color:$colorWhite;
+            border: 1px solid $colorBlack;
+            padding: 10px;
+            margin-left: 30px;
+            border-radius: 5px;
+
+            .info-nav{
+                font-size: 15px;
+                border-radius: 5px;
+                text-align: justify;
+                
+                h1{
+                    text-align: center;
+                }
+            }
+        }
+            
+    }
+
+}

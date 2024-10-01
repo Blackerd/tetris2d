@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div class="container">
+        <div class="left">
+            <button value="1" class="level" id="infoLevel1" >Level 1</button>
+            <button value="2" class="level" id="infoLevel2">Level 2</button>
+            <button value="3" class="level" id="infoLevel3">Level 3</button>
+            <button value="4" class="level" id="infoLevel4">Level 4</button>
+            <button value="5" class="level" id="infoLevel5">Level 5</button>
+            <button value="6" class="level" id="infoLevel6">Level 6</button>
+        </div>
+        <div class="center">
+            <h1>TETRIS GAME</h1>
+            <div class="board">
+                <canvas id="gameCanvas" width="240" height="480"></canvas>
+                <div id="gameOverMessage" class="gameOver" style="display: none;">
+                    <div class="textOver">
+                        <span>GAME OVER</span>
+                    </div>
+                    <div class="score">
+                        Your score: <span id="gameOverScore"></span>
+                    </div>
+                    <button id="restartButtonGameOver">Play Again</button>
+                </div>
+                <div id="gameWinMessage" class="gameWin"  style="display: none;">
+                    <div class="textWin">
+                        <span>CONGRATULATIONS!</span>
+                    </div>
+                    <button id="restartButtonGameWin">Play Again</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="score">
+                <span>Score: </span>
+                <span id="score">0</span>
+            </div>
+            <div class="next">
+                <canvas id="nextCanvas" width="80" height="80"></canvas>
+            </div>
+            <button id="pauseContinueButton" class="pause">Pause</button>
+            <button id="infoButton">Info</button>
+            <button id="muteSound">Mute Sound</button>
+        </div>
+        <div class="info">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h2>Thông tin cá nhân</h1>
+                    <p>Họ và Tên: Nguyễn Quý Dương</p>
+                <p>MSSV: 21130329</p>
+                <p>Giới Tính: Nam</p>
+                <p>Ngày sinh: 08/02/2003</p>
+                <p>Quê quán: Phú Yên </p>
+                <p>SDT: 0327200024 </p>
+            </div>
+        </div>
+        <div class="infoLevel1">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>HÒA BÌNH</h1>
+                <p>Mục tiêu : Hãy làm quen với cách chơi và học cách điều khiển khối gạch</p>
+                <p>Luật chơi :  </p>
+                <p>
+                    Bạn điều khiển một khối gạch gồm các khối gạch. Nhiệm vụ của bạn là di chuyển và xoay khối gạch để tạo thành các hàng đầy để chúng biến mất và giành điểm số.
+                    Chướng ngại vật: Trong level này, không có chướng ngại vật nào. Bạn chỉ cần tập trung vào việc xây dựng hàng để biến chúng biến mất.</p>                
+           
+                </div>
+        </div>
+        <div class="infoLevel2">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>DI CHUYỂN TỰ DO</h1>
+                <p>Mục tiêu : Thử nghiệm khả năng phản ứng nhanh nhạy khi khối gạch tự động di chuyển..</p>
+                <p>Luật chơi : </p>
+                <p>
+                    Bạn vẫn điều khiển khối gạch nhưng mỗi giây khối gạch sẽ tự động di chuyển xuống một vị trí bất kỳ. Nhiệm vụ của bạn là điều chỉnh và xoay khối gạch để tạo thành các hàng đầy để chúng biến mất và giành điểm số.
+                    Chướng ngại vật: Trong level này, không có chướng ngại vật nào. Bạn chỉ cần tập trung vào việc xây dựng hàng để biến chúng biến mất.</p>                
+           
+                </div>
+        </div>
+        <div class="infoLevel3">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>NGƯỢC DÒNG </h1>
+                <p>Mục tiêu : Thử nghiệm khả năng phản ứng nhanh và sự linh hoạt trong việc xây dựng hàng khi có thêm hàng mới từ dưới dâng lên.
+                </p>
+                <p>Luật chơi : </p>
+                <p>
+                     Bạn vẫn điều khiển khối gạch nhưng tốc độ di chuyển sẽ nhanh hơn. Nhiệm vụ của bạn là điều chỉnh và xoay khối gạch để tạo thành các hàng đầy để chúng biến mất và giành điểm số.
+                    Hàng từ dưới dâng lên: Mỗi 5 giây, một hàng mới sẽ từ dưới màn hình dần dần dâng lên, tăng độ khó và tạo ra áp lực đối với việc xây dựng hàng.</p>                
+           
+                </div>
+        </div>
+        <div class="infoLevel4">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>RẮC RỐI</h1>
+                <p>Mục tiêu : Thích ứng với sự thay đổi hướng di chuyển ngược nhau và phản ứng nhanh với việc di chuyển ngay lập tức khi nhấn xuống.</p>
+                <p>Luật chơi : </p>
+                <p>
+                     Bạn vẫn điều khiển khối gạch nhưng hướng di chuyển từ trái sang phải và ngược lại sẽ đổi ngược lại. Điều này có nghĩa là nếu bạn thường điều khiển sang phải, thì lần này sẽ phải điều khiển sang trái và ngược lại.
+                    Di chuyển xuống lập tức: Khi bạn nhấn nút điều khiển "xuống" (Down), khối gạch sẽ di chuyển xuống ngay lập tức đến khi chạm đến đáy màn hình hoặc va chạm với khối gạch khác.</p>                
+           
+                </div>
+        </div>
+        <div class="infoLevel5">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>CHƯỚNG NGẠI VẬT</h1>
+                <p>Mục tiêu :  Thích ứng với tốc độ di chuyển nhanh hơn và sự tăng lên về áp lực từ các chướng ngại vật.</p>
+                <p>Luật chơi : </p>
+                <p>
+                     Bạn vẫn điều khiển khối gạch nhưng tốc độ di chuyển sẽ nhanh hơn. Nhiệm vụ của bạn là điều chỉnh và xoay khối gạch để tạo thành các hàng đầy để chúng biến mất và giành điểm số.
+                    Chướng ngại vật: Số lượng và tốc độ di chuyển của chướng ngại vật tiếp tục tăng lên, tạo ra áp lực lớn hơn trong việc tránh chúng và xây dựng hàng.</p>                
+           
+                </div>
+        </div>
+        <div class="infoLevel6">
+            <div class="button-close">
+               
+            </div>
+            <div class="info-nav">
+                <h1>ĐẠI SỨ CỦA QUỶ</h1>
+                <p>Mục tiêu : Đối mặt với thách thức mới với sự xuất hiện của các chướng ngại vật ma mị và quỷ dị.</p>
+                <p>Luật chơi : </p>
+                <p>
+                     Bạn vẫn điều khiển khối gạch nhưng cảm giác thời gian càng trở nên quan trọng hơn. Nhiệm vụ của bạn là điều chỉnh và xoay khối gạch để tạo thành các hàng đầy để chúng biến mất và giành điểm số.
+                    Chướng ngại vật ma mị và quỷ dị: Bạn sẽ phải đối mặt với 3 chướng ngại vật có hình dạng của con ma mị và quỷ dị. Chúng sẽ di chuyển từ dưới lên màn hình, gây ra va chạm nếu chúng chạm vào khối gạch của bạn.
+                    Tăng độ khó: Càng về sau, tốc độ di chuyển của các chướng ngại vật cũng sẽ tăng lên, đồng thời số lượng chướng ngại vật cũng sẽ tăng theo.</p>                
+           
+                </div>
+        </div>
+    </div>
+    <audio id="songBackground" src="song/songBackground.mp3"></audio>
+    <audio id="songScore" src="song/score2.mp3"></audio>
+    <audio id="songGameOver" src="song/gameOver.mp3"></audio>
+    <audio id="songGameWin" src="song/gameWin.mp3"></audio>
+    <audio id="songMoveTettromino" src="song/move.mp3"></audio>
+    <audio id="songBlockRotate" src="song/blockRotate.mp3"></audio>
+    <script src="main.js"></script>
+</body> 
+</html>

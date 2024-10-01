@@ -1,0 +1,303 @@
+body {
+  background: url("./img/background.jpg");
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+body .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+body .container .left {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+}
+body .container .left .level {
+  border-radius: 5px;
+  background: white;
+  color: #070F2B;
+  border: none;
+}
+body .container .left .level:hover, body .container .left .level.active {
+  background: #A0153E;
+  color: white;
+}
+body .container .left .level:active {
+  background: #A0153E;
+  color: white;
+}
+body .container .left button {
+  padding: 10px;
+  margin: 15px;
+}
+body .container .center {
+  position: relative;
+}
+body .container .center h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body .container .center .board {
+  background: #FF204E;
+}
+body .container .center .board #gameCanvas {
+  width: 240px;
+  height: 480px;
+  border: 5px solid #FF204E;
+  margin: 0 auto;
+  position: relative;
+  background: #FF204E;
+  box-shadow: 0 0 5px 5px rgb(119, 142, 219);
+}
+body .container .center .gameOver {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #3C5B6F;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  display: none;
+  top: 50%;
+  left: 50%;
+}
+body .container .center .gameOver .textOver {
+  display: flex;
+  padding: 10px 5px 5px 5px;
+  color: white;
+}
+body .container .center .gameOver .score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px 0 5px 0;
+  padding: 10px 5px 5px 5px;
+  color: white;
+}
+body .container .center .gameOver #restartButton {
+  border-radius: 5px;
+  background: #481E14;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+}
+body .container .center .gameWin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #481E14;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  display: none;
+  top: 50%;
+  left: 50%;
+}
+body .container .center .gameWin .textWin {
+  display: flex;
+  padding: 10px 5px 5px 5px;
+  color: white;
+}
+body .container .center .gameWin #restartButton {
+  border-radius: 5px;
+  background: #481E14;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+}
+body .container .right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+body .container .right .score {
+  background: white;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
+body .container .right .play {
+  padding: 5px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+body .container .right .pause {
+  padding: 5px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+body .container .right #muteSound {
+  padding: 5px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+body .container .right #infoButton {
+  position: fixed;
+  top: 140px;
+  right: 320px;
+  padding: 5px 30px 5px 30px;
+  border-radius: 4px;
+}
+body .container .info {
+  display: none;
+  position: fixed;
+  right: 30px;
+  width: 200px;
+  top: 200px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .info .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+}
+body .container .infoLevel1 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 300px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel1 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel1 .info-nav h1 {
+  text-align: center;
+}
+body .container .infoLevel2 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 300px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel2 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel2 .info-nav h1 {
+  text-align: center;
+}
+body .container .infoLevel3 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 320px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel3 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel3 .info-nav h1 {
+  text-align: center;
+}
+body .container .infoLevel4 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 360px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel4 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel4 .info-nav h1 {
+  text-align: center;
+}
+body .container .infoLevel5 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 320px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel5 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel5 .info-nav h1 {
+  text-align: center;
+}
+body .container .infoLevel6 {
+  display: none;
+  position: fixed;
+  left: 50px;
+  width: 300px;
+  height: 400px;
+  top: 140px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+body .container .infoLevel6 .info-nav {
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: justify;
+}
+body .container .infoLevel6 .info-nav h1 {
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
